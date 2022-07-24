@@ -25,11 +25,6 @@ var getConfig = function (options) {
                         var file = this.files[0];
                         var fileName = file.name;
                         trimedFileName = fileName.substring(0, fileName.lastIndexOf('.'));
-                        var tmpArr = trimedFileName.replace(/-/g, ' ').split(' ');
-                        for (var i = 0, len = tmpArr.length; i < len; i++) {
-                            tmpArr[i] = tmpArr[i].charAt(0).toUpperCase() + tmpArr[i].slice(1);
-                        }
-                        alt = tmpArr.join(' ');
                         t.append("image", file),
                             t.append("type_slug", $("#upload_type_slug").val()),
                             $("#voyager-loader").css("z-index", 1e4),
@@ -43,7 +38,7 @@ var getConfig = function (options) {
                                 contentType: !1,
                                 cache: !1
                             }).done((function (t) {
-                                e(t.match(/setImageValue\('(?<uploadedURL>.*?)'\)/).groups.uploadedURL, { alt: alt, title: alt })
+                                e(t.match(/setImageValue\('(?<uploadedURL>.*?)'\)/).groups.uploadedURL, { alt: trimedFileName, title: trimedFileName })
                             }
                             )).always((function () {
                                 $("#voyager-loader").fadeOut(),
