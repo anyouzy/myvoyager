@@ -13,7 +13,7 @@ var getConfig = function (options) {
         min_height: 600,
         resize: 'vertical',
         plugins: 'link, image, code, table, textcolor, lists, media, toc, wordcount',
-        extended_valid_elements: 'input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick],img[class|src|border=0|loading|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]',
+        extended_valid_elements: 'input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick],img[class|src|border=0|loading=lazy|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]',
         image_title: true,
         file_picker_callback: function (e, t, n) {
             if ("image" == n.filetype) {
